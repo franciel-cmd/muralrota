@@ -324,9 +324,18 @@ button, input, textarea {
   gap: 1.5rem;
 }
 
-.process-grid,
-.command-grid {
+.process-grid {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.command-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+}
+
+@media (min-width: 900px) {
+  .command-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .process-card,
@@ -337,6 +346,17 @@ button, input, textarea {
   border: 1px solid var(--border);
   border-radius: 22px;
   padding: 1.75rem;
+}
+
+.command-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.command-card h3 {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  word-break: break-word;
 }
 
 .process-icon {
@@ -364,6 +384,11 @@ button, input, textarea {
 .command-card p {
   margin: 0;
   color: var(--muted);
+}
+
+.command-card p {
+  flex: 1;
+  line-height: 1.55;
 }
 
 .goal-card ul {
